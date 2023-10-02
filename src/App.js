@@ -43,80 +43,82 @@ function App() {
 	}
 
 	return (
-		<div className="container" style={{ display: 'grid', backgroundColor: 'black', textAlign: 'center', zIndex: -1 }}>
-			<div className='title--container'>
-				<h1 style={{ alignSelf: 'center', color: 'white', margin: '0' }}>MEME GENERATOR</h1>
-			
-			<button 
-			id="button"
-			style={{  height: 50, outlineColor: 'none', color: 'white' , backgroundColor: 'gray', justifySelf: 'center', width: '30' }} onClick={getRandomMeme}>
-						New Meme!
-			</button>
-			</div>
+		<div className="App">
+			<div className="container" style={{ display: 'grid', backgroundColor: 'black', textAlign: 'center', zIndex: -1 }}>
+				<div className='title--container'>
+					<h1 style={{ alignSelf: 'center', color: 'white', margin: '0' }}>MEME GENERATOR</h1>
+				
+				<button 
+				id="button"
+				style={{  height: 50, outlineColor: 'none', color: 'white' , backgroundColor: 'gray', justifySelf: 'center', width: '30' }} onClick={getRandomMeme}>
+							New Meme!
+				</button>
+				</div>
 
 
-			<div style={{ display: 'flex', justifyContent: 'center' }}>
-				<div 
-				style={{ 
-					justifySelf: 'center;',
-					zIndex: '1',
-					width: '80%',
-					fontFamily: "Impact",
-					position: 'absolute',
-					top: 265,
-					fontSize: 30,
-					fontWeight: 500,
-					color: 'white' }}>
-					{memeImage.topText}
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<div 
+					style={{ 
+						justifySelf: 'center;',
+						zIndex: '1',
+						width: '80%',
+						fontFamily: "Impact",
+						position: 'absolute',
+						top: 265,
+						fontSize: 30,
+						fontWeight: 500,
+						color: 'white' }}>
+						{memeImage.topText}
+					</div>
+
+					<div
+						style={{
+							zIndex: '1',
+							position: 'absolute',
+							top: 510,
+							fontSize: 30,
+							fontFamily: "Impact",
+							color: 'white',
+							fontWeight: 500,
+						}}
+					>
+						{memeImage.bottomText}
+					</div>
+
+					<div className="memeImage--container" style={{ position: 'relative'}}>
+						<img
+							style={{ width: '80%', height: '40vh', borderRadius: '5px' }}
+							src={memeImage.randomImage}
+							alt='memes'
+						/>
+					</div>
 				</div>
 
 				<div
+					className='input--fields'
 					style={{
-						zIndex: '1',
-						position: 'absolute',
-						top: 510,
-						fontSize: 30,
-						fontFamily: "Impact",
-						color: 'white',
-            			fontWeight: 500,
+						position: 'relative',
+						display: 'flex',
+						flexDirection: 'column',
+						justifySelf: 'center',
+						width: "80%",
+						bottom: 7,
 					}}
 				>
-					{memeImage.bottomText}
-				</div>
-
-				<div className="memeImage--container" style={{ position: 'relative'}}>
-					<img
-						style={{ width: '80%', height: '40vh', borderRadius: '5px' }}
-						src={memeImage.randomImage}
-						alt='memes'
+					<input
+						style={{ marginTop: 10 }}
+						name='topText'
+						onChange={handleChange}
+						value={memeImage.topText}
 					/>
+					<input
+						style={{ marginTop: 20 }}
+						name='bottomText'
+						onChange={handleChange}
+						value={memeImage.bottomText}
+					/>
+					
 				</div>
-			</div>
-
-			<div
-				className='input--fields'
-				style={{
-					position: 'relative',
-					display: 'flex',
-					flexDirection: 'column',
-					justifySelf: 'center',
-					width: "80%",
-					bottom: 7,
-				}}
-			>
-				<input
-					style={{ marginTop: 10 }}
-					name='topText'
-					onChange={handleChange}
-					value={memeImage.topText}
-				/>
-				<input
-					style={{ marginTop: 20 }}
-					name='bottomText'
-					onChange={handleChange}
-					value={memeImage.bottomText}
-				/>
-				
 			</div>
 		</div>
 	);
